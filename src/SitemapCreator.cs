@@ -5,14 +5,7 @@ namespace SitemapCreator;
 
 public class SitemapCreator
 {
-  private readonly string filePath;
-  private List<SiteUrl> urls;
-
-  public SitemapCreator(string filePath)
-  {
-    this.filePath = filePath;
-    urls = new();
-  }
+  private List<SiteUrl> urls = new();
 
   public void AddRange(IEnumerable<SiteUrl> urls)
   {
@@ -24,7 +17,7 @@ public class SitemapCreator
     this.urls.Add(url);
   }
 
-  public void Write()
+  public void Write(string filePath)
   {
     var map = new Sitemap
     {
